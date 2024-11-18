@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CadastroEventosapp.Views.TelaFinal"
+             Title="TelaFinal"
+             NavigationPage.HasNavigationBar="False">
+
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+
+        <Label Text="{Binding Evento.Nome.Descricao}"
+               TextColor="{StaticResource Primary}"
+               FontFamily="Kalam"
+               FontSize="50"
+               HorizontalTextAlignment="Center"/>
+
+        <Frame Margin="10">
+            <StackLayout  Orientation="Horizontal" >
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Adultos: " />
+                    <Label Text="{Binding Evento.NumeroParticipantes}" 
+                           TextColor="{StaticResource Primary}" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Crianças: " />
+                    <Label Text="{Binding Evento.CustoPorParticipante}" 
+                           TextColor="{StaticResource Primary}" />
+                </HorizontalStackLayout>
+            </StackLayout>
+        </Frame>
+
+        <Frame Margin="10">
+            <Grid ColumnDefinitions="*, *, *"
+                  RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0" Grid.Column="0" Text="Início:" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Término:" />
+                
+                <Label Grid.Row="1" Grid.Column="0" 
+                       Text="{Binding Evento.DataInicio, StringFormat='{}{0:dd/MM/yyyy}'}"
+                       TextColor="{StaticResource Primary}" />
+
+                <Label Grid.Row="1" Grid.Column="1" 
+                       Text="{Binding Evento.DataTermino, StringFormat='{}{0:dd/MM/yyyy}'}"
+                       TextColor="{StaticResource Primary}" />
+                
+            </Grid>
+        </Frame>
+
+        <Frame Margin="10">
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <Label Text="Valor Total: " />
+                <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'} "
+                       TextColor="{StaticResource Primary}"/>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Button Text="Voltar"
+                HorizontalOptions="Center" />
+
+    </VerticalStackLayout>
+</ContentPage>
